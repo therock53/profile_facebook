@@ -377,6 +377,8 @@ class MyHomePage extends StatelessWidget {
                 height: 10,
               ),
               Container(
+                padding:
+                    EdgeInsets.only(left: 10, bottom: 10, top: 10, right: 10),
                 child: Column(
                   children: [
                     Container(
