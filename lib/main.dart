@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() {
   runApp(const MyApp());
@@ -266,7 +267,15 @@ class MyHomePage extends StatelessWidget {
                                   ),
                                 ),
                                 SizedBox(width: 8),
-                                Text("Quoi de Neuf?"),
+                                Container(
+                                    width: 270,
+                                    height: 35,
+                                    decoration: BoxDecoration(
+                                      color: Colors.black12,
+                                      borderRadius: BorderRadius.circular(10.0),
+                                    ),
+                                    child:
+                                        Center(child: Text("Quoi de Neuf?"))),
                               ],
                             )),
                             Icon(
@@ -376,71 +385,170 @@ class MyHomePage extends StatelessWidget {
               SizedBox(
                 height: 10,
               ),
-              Container(
-                padding:
-                    EdgeInsets.only(left: 10, bottom: 10, top: 10, right: 10),
-                child: Column(
-                  children: [
-                    Container(
-                      color: Colors.white,
-                      child: Row(
-                        children: [
-                          CircleAvatar(
-                            backgroundColor: Colors.black26,
-                            child: Icon(
-                              Icons.person,
-                              color: Colors.white,
-                              size: 33,
-                            ),
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Container(
-                                child: Column(
-                                  children: [
-                                    Text(
-                                      "Ric Roc",
-                                      style: TextStyle(
-                                          fontStyle: FontStyle.normal,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                    Text(
-                                      "25 oct 2023",
-                                      style: TextStyle(
-                                          fontStyle: FontStyle.normal,
-                                          fontWeight: FontWeight.w700),
-                                    ),
-                                  ],
-                                ),
-                              )
-                            ],
-                          )
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Row(),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Row(),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Row(),
-                  ],
-                ),
-              )
+              publication(),
+              SizedBox(
+                height: 10,
+              ),
+              publication(),
+              SizedBox(
+                height: 10,
+              ),
+              publication(),
+              SizedBox(
+                height: 10,
+              ),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  Container publication() {
+    return Container(
+      //Conteneur publication début
+      width: double.infinity,
+      child: Column(children: [
+        Container(
+          width: double.infinity,
+          height: 130,
+          padding: EdgeInsets.only(left: 10, right: 10, top: 10),
+          color: Colors.white,
+          child: Container(
+            //conteneur de l'entête et de la description de la publication
+            //color: Colors.amber,
+            height: 90,
+            child: Column(
+              children: [
+                Container(
+                  width: double.infinity,
+                  //color: Colors.purpleAccent,
+                  child: Row(
+                    children: [
+                      CircleAvatar(
+                        backgroundColor: Colors.black26,
+                        child: Icon(
+                          Icons.person,
+                          color: Colors.white,
+                          size: 33,
+                        ),
+                      ),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Expanded(
+                        child: Container(
+                          //color: Colors.tealAccent,
+                          child: Column(
+                            children: [
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text('Ric Roc'),
+                                  Icon(FontAwesomeIcons.ellipsisH)
+                                ],
+                              ),
+                              Text("25 Oct 2023")
+                            ],
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                Container(
+                  //color: Colors.red,
+                  width: double.infinity,
+                  height: 60,
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Text(
+                          "Vivre c'est parfois ce que l'on espère et ne demandant rien de plus.Finding my stress-free zone in a frame 🌟 Code, Nap, Groove, and Meditate 🌈✨",
+                          overflow: TextOverflow.ellipsis,
+                          maxLines:
+                              3, // Ajouter cette ligne pour gérer le débordement avec des points de suspension
+                        ),
+                      ),
+                      Text("Voir Plus")
+                    ],
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
+        Container(
+          color: Colors.blue,
+          child: Image(
+              image: NetworkImage(
+                  'https://images.pexels.com/photos/19741018/pexels-photo-19741018/free-photo-of-bois-paysage-eau-ete.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')),
+        ),
+        Container(
+          width: double.infinity,
+          color: Colors.white,
+          height: 50,
+          child:
+              Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+            Container(
+              child: Row(
+                children: [
+                  Icon(
+                    FontAwesomeIcons.thumbsUp,
+                    color: Colors.green,
+                  ),
+                  SizedBox(
+                    width: 5,
+                  ),
+                  Text("j'aime")
+                ],
+              ),
+            ),
+            Container(
+              child: Row(
+                children: [
+                  Icon(FontAwesomeIcons.comment, color: Colors.green),
+                  SizedBox(
+                    width: 5,
+                  ),
+                  Text("Commenter")
+                ],
+              ),
+            ),
+            Container(
+              child: Row(
+                children: [
+                  Icon(
+                    FontAwesomeIcons.whatsapp,
+                    color: Colors.green,
+                  ),
+                  SizedBox(
+                    width: 5,
+                  ),
+                  Text("Envoyer")
+                ],
+              ),
+            ),
+            Container(
+              child: Row(
+                children: [
+                  Icon(
+                    FontAwesomeIcons.share,
+                    color: Colors.green,
+                  ),
+                  SizedBox(
+                    width: 5,
+                  ),
+                  Text("Partager")
+                ],
+              ),
+            ),
+          ]),
+        ),
+      ]),
+
+      //conteneur publication fin
     );
   }
 
