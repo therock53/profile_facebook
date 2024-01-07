@@ -385,15 +385,15 @@ class MyHomePage extends StatelessWidget {
               SizedBox(
                 height: 10,
               ),
-              publication(),
+              publication("Marc"),
               SizedBox(
                 height: 10,
               ),
-              publication(),
+              publication("Mathieu"),
               SizedBox(
                 height: 10,
               ),
-              publication(),
+              publication("Jean"),
               SizedBox(
                 height: 10,
               ),
@@ -404,7 +404,7 @@ class MyHomePage extends StatelessWidget {
     );
   }
 
-  Container publication() {
+  Container publication(String nom) {
     return Container(
       //Conteneur publication début
       width: double.infinity,
@@ -426,7 +426,8 @@ class MyHomePage extends StatelessWidget {
                   child: Row(
                     children: [
                       CircleAvatar(
-                        backgroundColor: Colors.black26,
+                        radius: 30,
+                        backgroundColor: Colors.green,
                         child: Icon(
                           Icons.person,
                           color: Colors.white,
@@ -434,7 +435,7 @@ class MyHomePage extends StatelessWidget {
                         ),
                       ),
                       SizedBox(
-                        width: 5,
+                        width: 10,
                       ),
                       Expanded(
                         child: Container(
@@ -445,7 +446,13 @@ class MyHomePage extends StatelessWidget {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text('Ric Roc'),
+                                  Text(
+                                    nom,
+                                    style: GoogleFonts.lemon(
+                                      fontSize: 23,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
                                   Icon(FontAwesomeIcons.ellipsisH)
                                 ],
                               ),
@@ -463,12 +470,19 @@ class MyHomePage extends StatelessWidget {
                   height: 60,
                   child: Row(
                     children: [
+                      SizedBox(
+                        height: 10,
+                      ),
                       Expanded(
                         child: Text(
                           "Vivre c'est parfois ce que l'on espère et ne demandant rien de plus.Finding my stress-free zone in a frame 🌟 Code, Nap, Groove, and Meditate 🌈✨",
                           overflow: TextOverflow.ellipsis,
-                          maxLines:
-                              3, // Ajouter cette ligne pour gérer le débordement avec des points de suspension
+                          maxLines: 3,
+                          style: GoogleFonts.abel(
+                              fontStyle: FontStyle.italic,
+                              fontWeight: FontWeight.w200,
+                              color: Colors
+                                  .black45), // Ajouter cette ligne pour gérer le débordement avec des points de suspension
                         ),
                       ),
                       Text("Voir Plus")
